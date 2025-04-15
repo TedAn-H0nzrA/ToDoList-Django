@@ -23,7 +23,7 @@ def taskCreate(request):
 
 # Update task
 def taskUpdate(request, pk):
-    task = get_object_or_404(task, pk = pk)
+    task = get_object_or_404(Task, pk = pk)
     if request.method == 'POST':
         form = TaskForm(request.POST, instance = task)
 
