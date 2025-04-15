@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Mes Tâches | ToDoList{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/Tasks/taskList.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="task-list-page">
+    <div class="page-header">
+        <h1>Liste des tâches</h1>
+        <a href="{% url 'taskCreate' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Ajouter une tâche
+        </a>
+    </div>
+
+    <div class="tasks-container">
+        {% for task in tasks %}
+        <div class="task-card {% if task.status == 'finished' %}finished{% endif %}">
+            <div class="task-info">
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+                <span class="status-label {{ task.status }}">
+                    {% if task.status == 'not_started' %}🕓 Non commencée
+                    {% elif task.status == 'in_progress' %}⏳ En cours
+                    {% else %}✅ Terminée
+                    {% endif %}
+                </span>
+            </div>
+            <div class="task-actions">
+                <a href="{% url 'taskUpdate' task.pk %}" class="btn-edit">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{% url 'taskDelete' task.pk %}" class="btn-delete">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="no-tasks">Aucune tâche disponible.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+.task-list-page {
+    padding: 2rem;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.task-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.task-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.status-label {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.status-label.not_started {
+    background-color: var(--gray);
+    color: white;
+}
+.status-label.in_progress {
+    background-color: var(--warning-color);
+    color: white;
+}
+.status-label.finished {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.task-actions a {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.task-actions a:hover {
+    transform: scale(1.1);
+    color: var(--text-color);
+}
+
+.no-tasks {
+    font-style: italic;
+    color: var(--gray);
+    margin-top: 2rem;
+}

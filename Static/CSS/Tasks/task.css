@@ -1,0 +1,42 @@
+.form-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select {
+    padding: 0.5rem;
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.form-container .btn {
+    margin-top: 1.5rem;
+    width: fit-content;
+}
+
+.delete-confirm p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}

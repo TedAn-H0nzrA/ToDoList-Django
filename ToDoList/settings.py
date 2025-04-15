@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # My apps
     'AppCore',
     'AppUser',
+    'AppTask',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,13 @@ WSGI_APPLICATION = 'ToDoList.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ToDoList_DB',  
+        'USER': 'ToDoList_user',  
+        'PASSWORD': 'todo5mdp',
+        'HOST': 'localhost',
+        'PORT': '3306',
+
     }
 }
 

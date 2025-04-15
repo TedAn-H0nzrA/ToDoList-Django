@@ -4,45 +4,30 @@
 {% block title %}Dashboard | ToDoList{% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'CSS/Core/home.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/Core/home.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="dashboard">
+<div class="dashboard-wrapper">
     <div class="dashboard-header">
-        <h1>Mes tâches</h1>
-        <button class="btn btn-primary" id="addTaskBtn">
-            <i class="fas fa-plus"></i> Nouvelle tâche
-        </button>
+        <h1>Bienvenue, {{ request.user.username }}</h1>
+        <p>Voici un aperçu rapide de votre activité.</p>
     </div>
 
-    <div class="tasks-container">
-        {% for task in tasks %}
-        <div class="task-card {% if task.completed %}completed{% endif %}">
-            <div class="task-status">
-                <input type="checkbox" {% if task.completed %}checked{% endif %}
-                       data-task-id="{{ task.id }}" class="task-checkbox">
-            </div>
-            <div class="task-content">
-                <h3>{{ task.title }}</h3>
-                <p>{{ task.description }}</p>
-                <span class="due-date">
-                    <i class="far fa-calendar-alt"></i>
-                    {{ task.due_date|date:"d/m/Y" }}
-                </span>
-            </div>
-            <div class="task-actions">
-                <button class="btn-edit" data-task-id="{{ task.id }}">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn-delete" data-task-id="{{ task.id }}">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <h3>Total des tâches</h3>
+            <p>{{ total_tasks }}</p>
+            <a href="{% url 'taskList' %}" class="stat-link">Voir toutes les tâches →</a>
         </div>
-        {% empty %}
-        <p class="no-tasks">Aucune tâche pour le moment.</p>
-        {% endfor %}
+        <div class="stat-card">
+            <h3>Tâches en cours</h3>
+            <p>{{ in_progress }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Tâches terminées</h3>
+            <p>{{ finished }}</p>
+        </div>
     </div>
 </div>
 {% endblock %}

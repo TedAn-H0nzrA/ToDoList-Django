@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Supprimer | ToDoList{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/Tasks/task.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container delete-confirm">
+    <h2>Confirmer la suppression</h2>
+    <p>Es-tu sûr(e) de vouloir supprimer la tâche : <strong>{{ task.title }}</strong> ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Oui, supprimer</button>
+        <a href="{% url 'taskList' %}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}
