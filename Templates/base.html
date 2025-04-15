@@ -7,6 +7,8 @@
     <title>{% block title %}ToDoList{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="{% static 'Icons/list.svg' %}">
+    <link rel="manifest" href="{% static 'manifest.json' %}">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -33,5 +35,17 @@
         {% endif %}
         {% block content %}{% endblock %}
     </main>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register("{% static 'serviceworker.js' %}")
+          .then(function(registration) {
+            console.log("ServiceWorker enregistré :", registration.scope);
+          })
+          .catch(function(error) {
+            console.log("ServiceWorker non enregistré :", error);
+          });
+        }
+      </script>
 </body>
 </html>

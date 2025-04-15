@@ -2,6 +2,7 @@ asgiref==3.8.1
 certifi==2025.1.31
 charset-normalizer==3.4.1
 Django==5.2
+django-pwa==2.0.1
 docutils==0.21.2
 filetype==1.2.0
 idna==3.10

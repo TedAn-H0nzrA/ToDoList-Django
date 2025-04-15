@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('AppCore.urls')),
     path('user/', include('AppUser.urls')),
     path('task/', include('AppTask.urls')),
+    path('', include('pwa.urls')),
 ]

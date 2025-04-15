@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-z2dw5qo4+ie)pe&*!83bcwv3h)r*ah-i2hvpiq13wx&wc$$d$1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'votre_ip_locale']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', '192.168.1.126']
 
 
 # Application definition
@@ -43,6 +43,23 @@ INSTALLED_APPS = [
     'AppCore',
     'AppUser',
     'AppTask',
+
+    # Framework
+    'pwa',
+]
+
+PWA_APP_NAME = 'ToDo List'
+PWA_APP_DESCRIPTION = "ToDoList Offline"
+PWA_APP_THEME_COLOR = '#2196f3'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/icons/icon-192x192.png',
+        'sizes': '192x192'
+    }
 ]
 
 MIDDLEWARE = [
