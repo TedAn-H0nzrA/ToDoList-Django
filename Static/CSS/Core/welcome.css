@@ -1,28 +1,100 @@
 .welcome-container {
   text-align: center;
-  margin-top: 4rem;
-  padding: 2rem;
+  margin: 2rem auto;
+  padding: 3rem 2rem;
+  max-width: 800px;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .welcome-container h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.welcome-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-color);
 }
 
 .welcome-container p {
-  font-size: 1.2rem;
-  color: var(--gray);
-  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
 }
 
 .cta-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .cta-buttons .btn {
-  padding: 0.75rem 2rem;
+  padding: 0.85rem 2.5rem;
   font-size: 1.1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-buttons .btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.cta-buttons .btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(108, 99, 255, 0.3);
+}
+
+.cta-buttons .btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.cta-buttons .btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(108, 99, 255, 0.3);
+}
+
+@media only screen and (max-width: 768px) {
+  .welcome-container {
+    padding: 2rem 1rem;
+    margin: 1rem;
+  }
+  
+  .welcome-container h1 {
+    font-size: 2.5rem;
+  }
+  
+  .welcome-container p {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .welcome-container h1 {
+    font-size: 2rem;
+  }
 }

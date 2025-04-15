@@ -1,16 +1,17 @@
 .auth-container {
   max-width: 400px;
   margin: 2rem auto;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .auth-container h2 {
   text-align: center;
   margin-bottom: 2rem;
   color: var(--primary-color);
+  font-size: 2rem;
 }
 
 .form-group {
@@ -21,38 +22,72 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  color: var(--text-color);
 }
 
 .form-group input {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.8rem;
+  border: 1px solid var(--gray-light);
+  border-radius: 6px;
   font-size: 1rem;
+  background-color: var(--background-light);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
 }
 
 .form-group .errors {
   color: var(--error-color);
   font-size: 0.9rem;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 }
 
 .auth-form button {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.9rem;
   font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.auth-form button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow);
 }
 
 .auth-link {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  color: var(--text-color);
 }
 
 .auth-link a {
   color: var(--primary-color);
   text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .auth-link a:hover {
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 480px) {
+  .auth-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
 }

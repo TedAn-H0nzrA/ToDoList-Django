@@ -1,9 +1,14 @@
 .dashboard-wrapper {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .dashboard-header {
     margin-bottom: 2rem;
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow);
+    text-align: center;
 }
 
 .dashboard-header h1 {
@@ -13,7 +18,7 @@
 }
 
 .dashboard-header p {
-    color: var(--gray);
+    color: var(--text-color);
     font-size: 1.1rem;
 }
 
@@ -24,30 +29,62 @@
 }
 
 .stat-card {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    background-color: var(--card-background);
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-color);
+}
+
+.stat-card:nth-child(2)::before {
+    background-color: var(--warning-color);
+}
+
+.stat-card:nth-child(3)::before {
+    background-color: var(--success-color);
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow);
 }
 
 .stat-card h3 {
     color: var(--text-color);
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .stat-card p {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.stat-card:nth-child(2) p {
+    color: var(--warning-color);
+}
+
+.stat-card:nth-child(3) p {
+    color: var(--success-color);
 }
 
 .stat-link {
@@ -56,9 +93,31 @@
     font-size: 0.95rem;
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: var(--background-light);
 }
 
 .stat-link:hover {
-    color: var(--text-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .dashboard-header {
+        padding: 1.5rem;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: 1.5rem;
+    }
+    
+    .stat-card p {
+        font-size: 2.5rem;
+    }
 }

@@ -1,0 +1,79 @@
+.form-container {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select {
+    padding: 0.8rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.form-container input[type="text"]:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.form-container .btn {
+    margin-top: 1.5rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.delete-confirm p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.delete-confirm strong {
+    color: var(--error-color);
+}
+
+@media only screen and (max-width: 768px) {
+    .form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
