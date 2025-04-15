@@ -1,1 +1,19 @@
-welcome
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Bienvenue | ToDoList{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/Core/welcome.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="welcome-container">
+    <h1>Bienvenue sur ToDoList</h1>
+    <p>Organisez vos tâches simplement et efficacement</p>
+    <div class="cta-buttons">
+        <a href="{% url 'login' %}" class="btn btn-primary">Connexion</a>
+        <a href="{% url 'register' %}" class="btn btn-secondary">Inscription</a>
+    </div>
+</div>
+{% endblock %}

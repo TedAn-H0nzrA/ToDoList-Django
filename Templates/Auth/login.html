@@ -1,1 +1,32 @@
-login
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Connexion | ToDoList{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/Auth/login_register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Connexion</h2>
+    <form method="POST" class="auth-form">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="errors">
+                        {% for error in field.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+    <p class="auth-link">Pas encore de compte ? <a href="{% url 'register' %}">Inscrivez-vous</a></p>
+</div>
+{% endblock %}
